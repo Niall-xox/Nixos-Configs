@@ -194,11 +194,11 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 
 --NOCTALIA persistent workspaces
 
-hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "1", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = "", persistent = true })
+hl.workspace_rule({ workspace = "5", monitor = "", persistent = true })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({

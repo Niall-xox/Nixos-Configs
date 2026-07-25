@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.noctalia.nixosModules.default
+      inputs.noctalia-greeter.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -70,7 +71,6 @@
   };
   security.rtkit.enable = true;
 
-
   services.tailscale = {
     enable = true;
   };
@@ -93,6 +93,22 @@
   programs.noctalia = {
     enable = true;
     recommendedServices.enable = true;
+  };
+
+  programs.noctalia-greeter = {
+    enable = true;
+    # Optional configuration
+    greeter-args = "";
+    settings = {
+      cursor = {
+        theme = "Bibata-Modern-Ice";
+        size = 24;
+        path = "${pkgs.bibata-cursors}/share/icons";
+      };
+      keyboard = {
+        layout = "us";
+      };
+    };
   };
 
   # List packages installed in system profile.
