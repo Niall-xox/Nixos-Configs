@@ -146,6 +146,29 @@ hl.config({
     },
 })
 
+-----------------
+---- THEMING ----
+-----------------
+
+-- Noctalia rewrites ~/.config/hypr/noctalia.lua at runtime whenever the theme
+-- changes. It is NOT managed by Home Manager (deliberately, same as
+-- ~/.config/kitty/themes/noctalia.conf), so we load it directly with an
+-- absolute path.
+--
+-- We use dofile() + an absolute path rather than require("noctalia"):
+--   1. This hyprland.lua is a symlink into the Nix store, so a plain
+--      require() would look for noctalia.lua next to the store object,
+--      not next to the real config file -- and it isn't there.
+--   2. dofile() always re-reads and re-executes the file, so you get the
+--      latest colors on every reload instead of a cached module table.
+do
+    local home = os.getenv("HOME")
+    local ok, noctalia = pcall(dofile, home .. "/.config/hypr/noctalia.lua")
+    if ok and noctalia and noctalia.apply_theme then
+        noctalia.apply_theme()
+    end
+end
+
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { {0.65, 0.05}, {0.36, 1}    } })
@@ -296,6 +319,9 @@ hl.window_rule({
     size = { 1080, 920 },
 })
 
+-- grim slurp screehsot tools bind
+hl.bind("SUPER + P", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
@@ -305,7 +331,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 --hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+--hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys

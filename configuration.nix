@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.noctalia.nixosModules.default
-      inputs.noctalia-greeter.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -32,7 +31,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  # i18n.defaultLocale = "en_UK.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -58,7 +57,7 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -74,6 +73,8 @@
   services.tailscale = {
     enable = true;
   };
+
+  services.displayManager.ly.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -95,22 +96,6 @@
     recommendedServices.enable = true;
   };
 
-  programs.noctalia-greeter = {
-    enable = true;
-    # Optional configuration
-    greeter-args = "";
-    settings = {
-      cursor = {
-        theme = "Bibata-Modern-Ice";
-        size = 24;
-        path = "${pkgs.bibata-cursors}/share/icons";
-      };
-      keyboard = {
-        layout = "us";
-      };
-    };
-  };
-
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -119,10 +104,13 @@
     nautilus
     libheif #for nautilus
     udiskie #for nautlius
-    hyprpolkitagent
     git
     xdg-user-dirs
     bibata-cursors
+    grim
+    slurp
+    wl-clipboard
+    nextcloud-client
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     discord
     spotify

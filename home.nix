@@ -7,6 +7,9 @@
 
   programs.kitty = {
     enable = true;
+    extraConfig = ''
+      include themes/noctalia.conf
+    '';
 
     settings = {
       background_opacity = "0.4";
@@ -51,6 +54,14 @@ programs.cava = {
 
  xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
 
+ # Fire `hyprctl reload` once Noctalia has finished resolving the new
+ # palette and rewriting theme templates (including ~/.config/hypr/noctalia.lua),
+ # so Hyprland's colors update instantly on wallpaper switch instead of
+ # requiring a manual reload.
+ xdg.configFile."noctalia/hooks.toml".text = ''
+   [hooks]
+   colors_changed = "hyprctl reload"
+ '';
 
   programs.home-manager.enable = true;
 
