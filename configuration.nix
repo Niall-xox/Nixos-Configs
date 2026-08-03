@@ -70,6 +70,11 @@
   };
   security.rtkit.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   services.tailscale = {
     enable = true;
   };
