@@ -60,6 +60,7 @@ local browser     = "zen"
 --      not next to the real config file -- and it isn't there.
 --   2. dofile() always re-reads and re-executes the file, so you get the
 --      latest colors on every reload instead of a cached module table.
+-- hyprctl reload (to apply colors without reboot) is handled by a small script in homemanager
 do
     local home = os.getenv("HOME")
     local ok, noctalia = pcall(dofile, home .. "/.config/hypr/noctalia.lua")

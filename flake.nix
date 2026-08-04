@@ -24,6 +24,12 @@
 
     ### MACHINE SPECIFIC FLAKE INPUTS ###
 
+    ### nialls-laptop (framework 13: officialy suported)###
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
