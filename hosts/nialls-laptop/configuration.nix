@@ -15,5 +15,9 @@
   # AMD CPU microcode
   hardware.cpu.amd.updateMicrocode = true;
 
+  # Enable fingerprint reader and ly compatibility
+  services.fprintd.enable = true;
+  security.pam.services.ly.fprintAuth = true;
+
   system.stateVersion = "26.05"; # match whatever nixos-generate-config reports on first install
 }
