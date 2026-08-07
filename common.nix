@@ -15,8 +15,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Use latest kernel. mkDefault set incase custom kernels used instead
+  boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;

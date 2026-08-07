@@ -52,5 +52,6 @@
   {
     nixosConfigurations.nialls-pc     = mkHost { hostname = "nialls-pc"; };
     nixosConfigurations.nialls-laptop = mkHost { hostname = "nialls-laptop"; };
+    nixosConfiguration.nialls-surface = mkHost { hostname = "nialls-surface"; };
   };
 }
