@@ -113,6 +113,10 @@
   ];
   environment.pathsToLink = [ "share/thumbnailers" ];
 
+  # Services to keep nextcloud client loggedin for nautilus
+  services.gnome.gnome-keyring.enable = true;
+  programs.dconf.enable = true;
+
   # Steam settings
   programs.steam = {
     enable = true; # Master switch, already covered in installation
