@@ -93,6 +93,7 @@
     discord
     spotify
     vscodium
+    darktable
   ];
 
   # Nautlius file browser settings
