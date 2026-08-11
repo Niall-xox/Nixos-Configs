@@ -5,6 +5,6 @@ hl.monitor({
   scale = 1.5,
   bitdepth = 10,
   cm = "auto",	
-  vrr = 1,
+  vrr = 0,
   supports_hdr = 1,
 })
