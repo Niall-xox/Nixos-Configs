@@ -77,7 +77,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     kitty
-    vim
+    neovim
     nautilus
     libheif #for nautilus
     udiskie #for nautlius
