@@ -94,6 +94,7 @@
     spotify
     vscodium
     darktable
+    claude-code
   ];
 
   # Nautlius file browser settings

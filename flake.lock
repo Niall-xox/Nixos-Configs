@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "esp32-ir-remote": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786667446,
+        "narHash": "sha256-+gxdcaIv7U2382wktZjc6EvBGPvCs6+d1wGEgb2+lHw=",
+        "owner": "Niall-xox",
+        "repo": "ESP32-IR-CEC-Alternative",
+        "rev": "67ad0769ba5933d70c8bf62190cdc0181d9697a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Niall-xox",
+        "repo": "ESP32-IR-CEC-Alternative",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -78,6 +98,7 @@
     },
     "root": {
       "inputs": {
+        "esp32-ir-remote": "esp32-ir-remote",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

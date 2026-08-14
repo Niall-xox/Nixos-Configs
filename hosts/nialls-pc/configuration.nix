@@ -6,6 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../common.nix
+    inputs.esp32-ir-remote.nixosModules.default
   ];
 
   # Defined hostname
@@ -15,7 +16,14 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
   hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.powerManagement.enable = true;
   hardware.cpu.amd.updateMicrocode = true;
+
+  # Extra group for this machine (serial/USB device access)
+  users.users.niall.extraGroups = [ "dialout" ];
+
+  # ESP32 IR remote — mirrors PC power state to the TV
+  services.esp32-ir-remote.enable = true;
 
   system.stateVersion = "26.05";
 
