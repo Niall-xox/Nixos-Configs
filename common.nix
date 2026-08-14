@@ -64,8 +64,11 @@
     ];
   };
 
-  # Enable Hyprland desktop enviroment
-  programs.hyprland.enable = true;
+  # Enable Hyprland desktop enviroment. (with UWSM for things like screen sharing)
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   # Enable Noctalia shell (sourced from git in flake, not nixos packages)
   programs.noctalia = {
