@@ -80,6 +80,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     kitty
+    asciiquarium-transparent
     neovim
     nautilus
     libheif #for nautilus
@@ -91,6 +92,7 @@
     slurp
     wl-clipboard
     nextcloud-client
+    seahorse
     localsend
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     discord
