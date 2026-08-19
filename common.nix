@@ -102,6 +102,23 @@
     claude-code
   ];
 
+  #Font settings
+  fonts.packages = with pkgs; [
+    google-fonts
+    nerd-fonts.hack
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    noto-fonts-color-emoji
+  ];
+
+  #UPDATE ROBOTO TO GOOGLE SANS FLEX WHEN AVAILABLE IN GOOGLE FONTS PACKAGE
+  fonts.fontconfig.defaultFonts = {
+    monospace = [ "Hack Nerd Font Mono" "Noto Sans Mono" "Noto Color Emoji" ];
+    sansSerif = [ "Roboto flex" "Noto Sans" "Noto Color Emoji" ];
+    serif     = [ "Lora" "Noto Serif" "Noto Color Emoji" ];
+    emoji     = [ "Noto Color Emoji" ];
+  };
+
   # Nautlius file browser settings
   services.gvfs.enable = true;
   services.udisks2.enable = true;
