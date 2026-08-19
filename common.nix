@@ -98,6 +98,10 @@
     discord
     spotify
     vscodium
+    freecad
+    orca-slicer
+    kicad
+    libreoffice
     darktable
     claude-code
   ];
