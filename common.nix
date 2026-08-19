@@ -21,6 +21,9 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
+  # Locale set to united kingdom
+  i18n.defaultLocale = "en_GB.UTF-8";
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
