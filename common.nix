@@ -59,6 +59,34 @@
   # Enable display manager (Ly)
   services.displayManager.ly.enable = true;
 
+  # Enable Plymouth for boot screen customisation
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "connect";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "connect" ];
+        })
+      ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.niall = {
     isNormalUser = true;
@@ -132,7 +160,7 @@
   fonts.fontconfig.defaultFonts = {
     monospace = [ "Hack Nerd Font Mono" "Noto Sans Mono" "Noto Color Emoji" ];
     sansSerif = [ "Roboto flex" "Noto Sans" "Noto Color Emoji" ];
-    serif     = [ "Lora" "Noto Serif" "Noto Color Emoji" ];
+    serif     = [ "Newsreader" "Noto Serif" "Noto Color Emoji" ];
     emoji     = [ "Noto Color Emoji" ];
   };
 
