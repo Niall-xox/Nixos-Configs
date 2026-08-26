@@ -63,11 +63,11 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "connect";
+      theme = "square_hud";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "connect" ];
+          selected_themes = [ "square_hud" ];
         })
       ];
     };
