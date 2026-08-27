@@ -63,13 +63,7 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "cross_hud";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "cross_hud" ];
-        })
-      ];
+      theme = "bgrt";
     };
 
     # Enable "Silent boot"
