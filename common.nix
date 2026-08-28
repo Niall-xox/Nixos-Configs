@@ -133,6 +133,7 @@
     git
     xdg-user-dirs
     bibata-cursors
+    adw-gtk3 #for noctalia theming of gtk
     grim
     slurp
     wl-clipboard
@@ -140,7 +141,7 @@
     seahorse
     localsend
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    discord
+    vesktop
     spotify
     vscodium
     freecad
@@ -185,9 +186,11 @@
   ];
   environment.pathsToLink = [ "share/thumbnailers" ];
 
+  # Enable configuration of gnome and gtk settings (theme declared in home.nix)
+  programs.dconf.enable = true;
+
   # Services to keep nextcloud client loggedin for nautilus
   services.gnome.gnome-keyring.enable = true;
-  programs.dconf.enable = true;
 
   # Steam settings
   programs.steam = {

@@ -110,6 +110,12 @@
     colors_changed = "hyprctl reload"
   '';
 
+  # Gnome settings for specifying GTK theme (requires programs.dconf.enable = true)
+  dconf.settings."org/gnome/desktop/interface" = {
+    gtk-theme = "adw-gtk3";
+    color-scheme = "prefer-dark"; # or prefer-light
+  };
+
   # Enable home manager cli commands
   programs.home-manager.enable = true;
 
