@@ -127,6 +127,7 @@
     libheif #for nautilus
     udiskie #for nautlius
     git
+    git-credential-manager
     xdg-user-dirs
     bibata-cursors
     adw-gtk3 #for noctalia theming of gtk
