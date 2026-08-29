@@ -7,10 +7,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [
-    inputs.noctalia.nixosModules.default
-  ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -105,7 +101,7 @@
     withUWSM = true;
   };
 
-  # Enable Noctalia shell (sourced from git in flake, not nixos packages)
+  # Enable Noctalia shell
   programs.noctalia = {
     enable = true;
     recommendedServices.enable = true;
@@ -141,7 +137,7 @@
     seahorse
     localsend
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-    vesktop
+    discord
     spotify
     vscodium
     freecad
