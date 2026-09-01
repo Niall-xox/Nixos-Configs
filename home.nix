@@ -30,10 +30,18 @@
     };
   };
 
+  # Shell settigns, per user shell defined in common.nix
   programs.bash = {
     enable = true;
     enableCompletion = true;
     initExtra = ''
+      fastfetch
+    '';
+  };
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set -g fish_greeting
       fastfetch
     '';
   };

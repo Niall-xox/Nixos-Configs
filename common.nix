@@ -88,12 +88,17 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Specify user using fish shell
   users.users.niall = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
     packages = with pkgs; [
     ];
   };
+
+  # Enable fish shell. (shell defined per user in users block)
+  programs.fish.enable = true;
 
   # Enable Hyprland desktop enviroment. (with UWSM for things like screen sharing)
   programs.hyprland = {
