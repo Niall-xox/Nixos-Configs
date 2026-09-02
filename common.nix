@@ -147,6 +147,8 @@
     spotify
     vscodium
     freecad
+    gmsh # Freecad mesher
+    calculix-ccx # Freecad solver
     orca-slicer
     kicad
     libreoffice
