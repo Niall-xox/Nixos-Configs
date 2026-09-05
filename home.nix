@@ -50,6 +50,10 @@
     enable = true;
   };
 
+  programs.yazi = {
+    enable = true;
+  };
+
   programs.fastfetch = {
     enable = true;
     settings = {
